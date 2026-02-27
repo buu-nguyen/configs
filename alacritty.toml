@@ -3,6 +3,7 @@ size = 15.0
 
 [font.normal]
 family = "MesloLGS NF"
+style = "Regular"
 
 [font.bold]
 family = "MesloLGS NF"
