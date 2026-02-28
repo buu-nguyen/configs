@@ -185,6 +185,8 @@ ondelay = 300
     port = "auto"
     vendorid = "0665"
     productid = "5161"
+    product = "USB to Serial"
+    vendor = "INNO TECH"
 EOL
     upsdrvctl start
     cat <<'EOL' > /etc/nut/upsd.conf
