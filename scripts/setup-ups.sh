@@ -180,11 +180,13 @@ pollinterval = 15
 maxretry = 3
 offdelay = 180
 ondelay = 300
+[ups]
+    driver = "nutdrv_qx"
+    port = "auto"
+    vendorid = "0665"
+    productid = "5161"
 EOL
-    nut-scanner -U >> /etc/nut/ups.conf
-    sed -i 's/\[.*\]/\[ups\]/g' /etc/nut/ups.conf
     upsdrvctl start
-
     cat <<'EOL' > /etc/nut/upsd.conf
 LISTEN 0.0.0.0 3493
 LISTEN :: 3493
