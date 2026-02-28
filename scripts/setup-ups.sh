@@ -144,8 +144,8 @@ backup_files() {
 
 install_package() {
     case "$MODE" in
-        netserver) apt install -y nut ;; 
-        netclient) apt install -y nut-client ;; 
+        netserver) sudo apt install -y nut ;; 
+        netclient) sudo apt install -y nut-client ;; 
     esac
 }
 
