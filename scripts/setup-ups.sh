@@ -1,8 +1,26 @@
 #!/bin/sh
 # ups.sh - configure a UPS machine as either a NUT netserver or netclient
 # usage: ups.sh [server|client]
+#
+# The script modifies system configuration and installs packages, so it
+# must run as root.  When invoked via the curl‑pipe‑to‑sh pattern it may
+# execute under a non‑privileged shell; in that case we try to re‑exec
+# ourselves with sudo.  If sudo is not available we complain.
 
 set -eu
+
+# ensure we are running as root, escalating via sudo if necessary.  Running
+# this under a user account without sudo will print an error and exit; running
+# it as root (even on systems with no sudo installed) continues normally.
+if [ "$(id -u)" -ne 0 ]; then
+    if command -v sudo >/dev/null 2>&1; then
+        echo "note: re‑executing under sudo..."
+        exec sudo sh "$0" "$@"
+    else
+        echo "error: this script must be run as root" >&2
+        exit 1
+    fi
+fi
 
 echoerr() {
     printf "%s\n" "$*" >&2
