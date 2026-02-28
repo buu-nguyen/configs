@@ -7,10 +7,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/buu-nguyen/configs/HEAD/
 ## Setup UPS
 - Server
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/buu-nguyen/configs/HEAD/scripts/setup-ups.sh)" -- server
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/buu-nguyen/configs/HEAD/scripts/setup-ups.sh)" -- server
 ```
 
 - Client
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/buu-nguyen/configs/HEAD/scripts/setup-ups.sh)" -- client --host 10.10.10.1
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/buu-nguyen/configs/HEAD/scripts/setup-ups.sh)" -- client --host 10.10.10.1
 ```
