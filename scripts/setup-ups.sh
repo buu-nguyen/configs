@@ -9,17 +9,6 @@
 
 set -eu
 
-# the script needs root privileges to install packages and write to
-# /etc.  automatic privilege escalation has proven fragile in the piped
-# invocation case, so we now require the caller to start the script as root
-# (either by running `su` or prefixing with `sudo`).  If you are not root
-# we simply print a message and exit.
-if [ "$(id -u)" -ne 0 ]; then
-    echo "error: this installer must be run as root."
-    echo "       please re-run as root (e.g. 'sudo ...' or 'su -c ...')."
-    exit 1
-fi
-
 echoerr() {
     printf "%s\n" "$*" >&2
 }
