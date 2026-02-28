@@ -133,7 +133,7 @@ EOFS
 
 backup_files() {
     for path in "$@"; do
-        [ -e "$path" ] && mv "$path" "$path.example" || true
+        [ -e "$path" ] && mv "$path" "$path.bak" || true
     done
 }
 
