@@ -12,10 +12,23 @@ set -eu
 # ensure we are running as root, escalating via sudo if necessary.  Running
 # this under a user account without sudo will print an error and exit; running
 # it as root (even on systems with no sudo installed) continues normally.
+#
+# The invocation can be either
+#   * piped (curl … | sh) in which case $0 is typically "-c" or "sh" and
+#     there is no file on disk to execute, or
+#   * normal (./setup-ups.sh or sh setup-ups.sh) where $0 names a regular
+#     file containing the script.  The escalation logic chooses the
+#     appropriate form accordingly.
 if [ "$(id -u)" -ne 0 ]; then
     if command -v sudo >/dev/null 2>&1; then
         echo "note: re‑executing under sudo..."
-        exec sudo sh "$0" "$@"
+        # if $0 refers to an existing file we can tell sudo to execute it
+        # directly; otherwise fall back to `sh -s` which reads from stdin
+        if [ -n "$0" ] && [ -f "$0" ]; then
+            exec sudo sh "$0" "$@"
+        else
+            exec sudo sh -s -- "$@"
+        fi
     else
         echo "error: this script must be run as root" >&2
         exit 1
