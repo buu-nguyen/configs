@@ -1,11 +1,6 @@
 #!/bin/sh
 # ups.sh - configure a UPS machine as either a NUT netserver or netclient
 # usage: ups.sh [server|client]
-#
-# The script modifies system configuration and installs packages, so it
-# must run as root.  When invoked via the curl‑pipe‑to‑sh pattern it may
-# execute under a non‑privileged shell; in that case we try to re‑exec
-# ourselves with sudo.  If sudo is not available we complain.
 
 set -eu
 
