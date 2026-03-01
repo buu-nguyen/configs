@@ -1,9 +1,4 @@
 {
-  "workbench.colorTheme": "Monokai Pro",
-  "workbench.iconTheme": "Monokai Pro Icons",
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "redhat.telemetry.enabled": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "JetBrains Mono, monospace",
   "editor.fontLigatures": true,
@@ -30,6 +25,18 @@
       }
     ]
   },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "zsh",
   "terminal.integrated.fontFamily": "MesloLGS NF, monospace",
-  "terminal.integrated.fontSize": 14
+  "terminal.integrated.fontSize": 14,
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "disabled"
+  },
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.iconTheme": "Monokai Pro Icons"
 }
